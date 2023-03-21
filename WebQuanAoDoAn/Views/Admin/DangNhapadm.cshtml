@@ -1,0 +1,54 @@
+﻿
+@{
+    Layout = null;
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link href="~/Content/style.css" rel="stylesheet" />
+<section id="login">
+
+    @using (Html.BeginForm())
+    {
+        <div style="height:30px">
+            <p style="color: red; margin: 0; text-align: center; font-size: 20px; font-weight: 500;">
+                @ViewBag.Thongbao
+            </p>
+        </div>
+
+        @Html.ValidationSummary(true)
+        <div class="container">
+
+            <header class="head-form">
+                <h2>Đăng Nhập</h2>
+                <p>Nhập Tài Khoản ADMIN</p>
+            </header>
+            <div>
+                <span class="input-item">
+                    <i class="fa fa-user-circle"></i>
+                </span>
+                <input class="form-input" id="txt-signin" type="text" name="txt-signin" placeholder="Tên đăng nhập">
+            </div>
+
+            <div>
+                <span class="input-item">
+                    <i class="fa fa-key"></i>
+                </span>
+                <input class="form-input" type="password" placeholder="Mật khẩu" id="pwd" name="pwd" required>
+                <div id="toggle" onclick="showPassword()"></div>
+            </div>
+
+            <button class="btn log-in"> Đăng Nhập </button>
+            <div style="width:80%;">
+                <button class="submits fg-pass">Quên Mật Khẩu</button>
+                @*<button class="submits sign-up" onclick="window.location.href='/NguoiDung/DangKy'">
+                        Đăng Ký
+                        <i class="fa fa-user-plus"></i>
+                    </button>*@
+
+            </div>
+
+        </div>
+        <script src="~/Scripts/script.js"></script>
+    }
+</section>
+

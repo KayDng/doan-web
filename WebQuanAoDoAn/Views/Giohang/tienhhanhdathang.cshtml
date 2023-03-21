@@ -1,0 +1,84 @@
+﻿@using WebQuanAoDoAn.Models;
+
+@{
+    Layout = null;
+}
+
+@{
+    KHACH_HANG kh = (KHACH_HANG)Session["TaiKhoan"];
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/grid.css" rel="stylesheet" />
+    <link href="~/Content/cssthongtindonhang.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+
+    <div class="boy-chinh">
+        <div class="grid wide">
+            <div class="body-ttdh">
+                <h1> Thông tin đơn hàng </h1>
+
+                <form action="" method="post" class="form-http">
+                    <div class="td-cha">
+
+                        <div class="td1">Họ tên: </div>
+                        <div class="td2"> @kh.TEN_KH</div>
+                    </div>
+
+                    <div class="td-cha">
+                        <div class="td1"> Địa chỉ: </div>
+                        <div class="td2"> @Session["diachi"].ToString()</div>
+                    </div>
+
+                    <div class="td-cha">
+                        <div class="td1"> Điện thoại: </div>
+                        <div class="td2"> @Session["SDTKH"].ToString()</div>
+
+                    </div>
+                    <div class="td-cha">
+                        <div class="td1">Gmail Đạt Hàng: </div>
+                        <div class="td2"> @Session["gmailNH"].ToString()</div>
+                    </div>
+
+                    <div class="td-cha">
+                        <div class="td1">Ngày đặt: </div>
+                        <div class="td2"> @String.Format("{0:dd/MM/yyyy}", @DateTime.Now)</div>
+                    </div>
+
+                    <div class="td-cha">
+                        <div class="td1">Ngày giao: </div>
+                        <div class="td2"> <input type="date" name="Ngaygiao" required></div>
+
+                    </div>
+
+                    <div class="td-cha">
+                        <div class="td1">Tổng tiền phải thanh toán: </div>
+                        <div class="td2">  @String.Format("{0:0,0}", ViewBag.Tongtien) đ</div>
+                    </div>
+
+
+                    <div class="td-cha btn">
+                        <div>
+                            <a href="/Giohang/Dathang">Quay Lại</a>
+                        </div>
+                        <div>
+                            <button> Đồng ý đặt hàng</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

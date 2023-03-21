@@ -1,0 +1,163 @@
+﻿
+@using WebQuanAoDoAn.Models;
+@model List<Giohang>
+@{
+    ViewBag.Title = "Dathang";
+    Layout = "~/Views/Shared/layOutWebQuanAo.cshtml";
+}
+
+@*<h2 style="text-align:center">THÔNG TIN CÁC SẢN PHẨM </h2>
+<table align="center" border="1">
+    <tr style="text-align:center; font-weight:bold">
+        <td>  Mã sp </td>
+        <td> Tên sp</td>
+        <td> Ảnh  </td>
+        <td> Số lượng </td>
+        <td> Đơn giá </td>
+        <td> Thành tiền </td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr style="text-align:center; font-weight:bold">
+            <td> @item.iMasp </td>
+            <td> @item.sTensp</td>
+            <td><img src="../img/products/@item.sAnhsp"></td>
+            <td>  @item.iSoluong </td>
+            <td>@String.Format("{0:0,0}", item.dDongia) </td>
+            <td>@String.Format("{0:0,0}", item.dThanhtien) </td>
+        </tr>
+    }
+    <tr style="font-weight: bold; text-align:right; color:red">
+        <td colspan="3"> Số lượng sách: @ViewBag.Tongsoluong </td>
+        <td colspan="3"> Tổng tiền: @String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ </td>
+    </tr>
+    <tr style="font-weight: bold; text-align:center; color:red">
+        <td colspan="6"> <a href="@Url.Action("GioHang","Giohang")"> TRỞ VỀ TRANG GIỎ HÀNG  </a></td>
+    </tr>
+</table>
+
+
+
+<h2 style="text-align:center">THÔNG TIN ĐẶT HÀNG</h2>
+@{
+    KHACH_HANG kh = (KHACH_HANG)Session["TaiKhoan"];
+}
+<table align="center">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <tr style="height:40px">
+            <td> Họ tên khách hàng:</td>
+            <td style="font-weight:bold">  @kh.TEN_KH </td>
+        </tr>
+        <tr style="height:40px">
+            <td> Địa chỉ:</td>
+            <td style="font-weight:bold">  @kh.DIA_CHI</td>
+        </tr>
+        <tr style="height:40px">
+            <td> Địện thoại:</td>
+            <td style="font-weight:bold">  @kh.SDT </td>
+        </tr>
+
+        <tr style="height:40px">
+            <td> Ngày đặt:</td>
+            <td style="font-weight:bold"> @DateTime.Now.ToShortDateString() </td>
+        </tr>
+        <tr style="height:40px">
+            <td> Ngày giao hàng:</td>
+            <td style="font-weight:bold">
+                <input type="date" name="Ngaygiao" />
+            </td>
+        </tr>
+
+        <tr style="height:40px">
+            <td></td>
+            <td>
+                <input type="Submit" value="ĐỒNG Ý ĐẶT HÀNG" />
+            </td>
+        </tr>
+    }
+</table>*@
+
+<div class="grid wide">
+    <div class="row">
+
+        <div class="formlayout thông-tin-đơn-hàng">
+            <div class="formlayout-ct">
+                <p>Thông tin sản phẩm</p>
+                <div class="formlayout-thong-tin-sp">
+                    @foreach (var item in Model)
+                    {
+                        <div class="formlayout-ttsp-con">
+                            <div class="divimg">
+                                <img src="../img/products/@item.sAnhsp" alt="" width="70px" height="75px">
+                                <div class="sl-sp">
+                                    <span>@item.iSoluong</span>
+                                </div>
+                            </div>
+
+                            <div class="formlayout-tspAndSize">
+                                <span>@item.sTensp</span>
+                                <span> M</span>
+                            </div>
+                            <div class="formlayout-gia">
+                                @String.Format("{0:0,0}", item.dThanhtien) đ
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+                <hr>
+                <div class="formlayout-summoney">
+                    <div class="formlayout-summoney-text">
+                        Tổng Cộng
+                    </div>
+                    <div class="formlayout-summoney-money">
+                        <span>VNĐ</span> @String.Format("{0:0,0}", ViewBag.Tongtien) đ
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+        <div class="formlayout  order-information">
+            <div class="formlayout-ttkh">
+                <p> Web Quần áo</p>
+                <span class="text-ttgh">Thông tin giao hàng</span>
+                <form action="" method="post">
+
+                    <div class="form-group">
+                        <label for="date-time" class="for_lable">Ngày Sinh</label>
+                        <input type="date" name="date-time" class="form-input" id="date-time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hoten" class="for_lable">Email</label>
+                        <input class="form-input" id="hoten" name="gmail" type="email" placeholder="Nhập Gmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dia-chia" class="for_lable"> Địa chỉ</label>
+                        <input type="text" placeholder="Nhập địa chỉ giao hàng" id="dia-chia" name="dia-chia" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sdt" class="for_lable"> SĐT</label>
+                        <input type="text" pattern="(\+84|0)\d{9,10}" title="nhập số điện thoại từ 10 đến 11 số" placeholder="nhập sdt " name="sdt" class="form-input" id="sdt" required>
+                    </div>
+                    <div class="form-btn">
+                        <a href="/GioHang/GioHang" class="a-gh">Giỏ hàng</a>
+                        <button class="btn-capnhat">
+                            Cập nhật thông tin
+                        </button>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,205 @@
+﻿@using PagedList
+@model PagedList.PagedList<WebQuanAoDoAn.Models.SAN_PHAM>
+@using PagedList.Mvc;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOP ALL</title>
+    <!-- css -->
+
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+    <section id="header">
+        <a href="index.html"><img src="" class="" alt=""></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a href="/WebQuanAo/Index">HOME</a></li>
+                <li><a class="active" href="/WebQuanAo/ALLsanpham">SHOP ALL</a></li>
+                <li><a href="tops.html">TOPS</a></li>
+                <li><a href="bottoms.html">BOTTOMS</a></li>
+                <li><a href="outerwear.html">OUTERWEAR</a></li>
+                <li><a href="sale.html">SALE</a></li>
+                <li><a href="sale.html">SIZE</a></li>
+                <a href="#" id="close"><i class="far fa-times-circle"></i></a>
+            </ul>
+        </div>
+
+        <div>
+            <ul class="icon-bar">
+                <li><a href="cart.html" id="lg"><i class="far fa-search"></i></a></li>
+                @if (Session["TaiKhoan"] == null)
+                {
+                    <li><a href="/NguoiDung/DangNhap" id="lg"><i class="far fa-user"></i></a></li>
+                }
+                <li>@Html.Action("GiohangPartial", "Giohang")</li>
+                @if (Session["TaiKhoan"] != null)
+                {
+                    <li>
+                        <div class="user-cuttom">
+                            <div class="user-cuttom__avatar">
+                                <img src="/img/limited/1.1.jpg" />
+                            </div>
+                            <p> @Session["ten-khach-hang"].ToString()</p>
+                            <div class="gthoat">
+                                <ul>
+                                    <li>
+                                        <a href=""> Thông tin khách hàng </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/NguoiDung/Logout"> Đăng Xuất </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </li>
+                }
+
+            </ul>
+        </div>
+
+        <div id="mobile">
+            <a href="cart.html"><i class="far fa-search"></i></a>
+            <a href="../html/login.html"><i class="far fa-user"></i></a>
+            <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
+            <i id="bar" class="fa fa-align-justify"></i>
+        </div>
+    </section>
+
+    <selection id="shopall">
+        <section id="product1">
+            <div class="wrapper-heading-home wrapper-heading-home-new">
+                <span class="text-animation">
+                    <h2>
+                        <a href="/WebQuanAo/ALLsanpham">
+                            ALL PRODUCT
+                        </a>
+
+                    </h2>
+                </span>
+            </div>
+            <div class="filter-by-product">
+                @Html.Action("Loaispcon", "WebQuanAo")
+            </div>
+            <div class="pro-container">
+                @foreach (var sanpham in Model)
+                {
+                    <div class="pro" id="@sanpham.MA_SP">
+                        <div class="pro-img">
+                            <picture>
+                                <a href="/WebQuanAo/Detail/@sanpham.MA_SP"><img src="/img/products/@sanpham.HINH_ANH" alt=""></a>
+                            </picture>
+                            <picture>
+                                <a href="/WebQuanAo/Detail/@sanpham.MA_SP"><img src="/img/products/@sanpham.HINH_ANH1" alt=""></a>
+                            </picture>
+                            <div class="buy-btn">
+                                <button><a href="@Url.Action("Themgiohang", "Giohang", new { id = sanpham.MA_SP , strURL= Request.Url.ToString() })">THÊM VÀO GIỎ</a></button>
+                            </div>
+                        </div>
+                        <div class="des">
+                            <div class="square">
+                                <i class="fas fa-square" style=" color:#@sanpham.MA_MAU"></i>
+                            </div>
+                            <h5>@sanpham.TEN_SP</h5>
+                            <h4>@String.Format("{0:0,0}", sanpham.GIA_BAN) đ</h4>
+                        </div>
+                    </div>
+                }
+            </div>
+        </section>
+    </selection>
+
+
+    <section id="pagination" class="section-p1">
+        <div class="page">
+            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+        </div>
+
+        <div>
+            @Html.PagedListPager(Model, page => Url.Action("SptheoLoai", new { page = page }))
+        </div>
+
+    </section>
+
+
+
+
+    <section id="newsletter" class="section-p1 section-m1" style="margin-bottom:0 ;">
+        <div class="newstext">
+            <h4>ĐĂNG KÝ NGAY</h4>
+            <p>Để lại email để nhận được thông tin về sản phẩm mới nhất của chúng tôi và <span>các ưu đãi đặc biệt.</span></p>
+        </div>
+        <div class="form">
+            <input type="gmail" placeholder="Vui lòng nhập emaiil tại đây...">
+            <button class="normal">ĐĂNG KÝ</button>
+        </div>
+    </section>
+
+    <footer class="section-p1" style="padding-bottom:0;">
+        <div class="col">
+            <h3>GIỚI THIỆU <hr></h3>
+
+            <p>Chào mừng bạn đến với ngôi nhà của chúng tôi! Tại đây, mỗi một dòng chữ, mỗi chi tiết và hình ảnh đều là những bằng chứng mang đậm cá tính của chúng tôi, và đang không ngừng phát triển lớn mạnh.</p>
+        </div>
+
+        <div class="col">
+            <h3>Thông Tin Liên Hệ <hr></h3>
+            <p>
+                <i class="fas fa-map-marker-alt icon"></i>
+                9/20 Thạnh Mỹ Lợi, P.Thạnh Mỹ Lợi, TP.Thủ Đức
+            </p>
+            <p>
+                <i class="fas fa-clock icon"></i>
+                8:00 - 21:00
+            </p>
+            <p>
+                <i class="fas fa-phone-alt icon"></i>
+                <a href="tel:0379201809">0379201809</a>
+            </p>
+            <p>
+                <i class="fas fa-envelope icon"></i>
+                <a href="mailto:khanhkt9511@gmail.com">khanhkt9511@gmail.com</a>
+            </p>
+        </div>
+        <div class="col">
+            <h3>MENU <hr></h3>
+            <ul>
+                <li><a href="/WebQuanAo/Index">Trang chủ</a></li>
+                <li><a href="/WebQuanAo/ALLsanpham">Sản phẩm</a></li>
+                <li><a href="#">Hướng dẫn</a></li>
+                <li><a href="#">Bảng size</a></li>
+                <li><a href="#">Liên hệ</a></li>
+                <li><a href="#">Giới thiệu</a></li>
+            </ul>
+        </div>
+        <div class="col">
+            <h3>MẠNG XÃ HỘI <hr></h3>
+            <div class="social-media">
+                <a href="https://www.facebook.com/28.9.001.Me/"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/28_9_001.me/"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <section class="copyright">
+        <p>KayDng&reg; All Rights Reserved.</p>
+    </section>
+
+    <!-- js -->
+
+    <script src="~/Scripts/script.js"></script>
+</body>
+</html>

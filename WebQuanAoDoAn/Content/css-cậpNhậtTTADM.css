@@ -1,0 +1,90 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+.grid {
+    width: 100%;
+    display: block;
+}
+
+    .grid.wide {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+.form-CONTAINER {
+    margin: 10% auto 0 auto;
+    width: 50%;
+}
+
+    .form-CONTAINER form {
+        margin: 0 auto;
+    }
+
+    .form-CONTAINER .form-content {
+        margin-bottom: 20px;
+    }
+
+#tenADM {
+    width: 100%;
+    height: 35px;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: 1px solid rgb(169, 163, 163);
+    margin-top: 10px;
+}
+
+.form-CONTAINER .img {
+    margin-bottom: 20px;
+}
+
+.form-CONTAINER .form-chucnang {
+    display: flex;
+}
+
+.form-chucnang a {
+    flex-grow: 1;
+    text-decoration: none;
+    font-size: 20px;
+    color: #088178;
+}
+
+    .form-chucnang a:hover {
+        filter: brightness(150%);
+    }
+
+#avtarADM {
+    width: 100%;
+    margin-top: 10px;
+    border: solid 1px rgb(169, 163, 163);
+    border-radius: 5px;
+    padding: 6px;
+}
+
+.form-chucnang button {
+    background-color: #088178;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 25px;
+    color: #fff;
+    font-size: 16px;
+}
+
+    .form-chucnang button:hover {
+        cursor: pointer;
+        opacity: 0.6;
+    }
+
+.form-chucnang {
+    align-items: center;
+}
+
+.form-CONTAINER h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #088178;
+}

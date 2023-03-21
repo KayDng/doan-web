@@ -1,0 +1,95 @@
+﻿@using WebQuanAoDoAn.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<DON_DAT_HANG>
+
+@{
+    ViewBag.Title = "QLDONHANG";
+    Layout = "~/Views/Shared/layoutADMIN.cshtml";
+}
+
+<h2>THÔNG TIN ĐƠN HÀNG</h2>
+
+<p>
+   
+</p>
+<table class="table">
+    <tr>
+        <th>
+            MA_DON-HANG
+        </th>
+        <th>
+            TEN-NGUOI-DAT
+        </th>
+        <th>
+            NGAY_DAT
+        </th>
+        <th>
+            NGAY_GIAO
+        </th>
+        <th>
+            Tình trạng thanh toán
+        </th>
+        <th>
+            TINH_TRANG_GH
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MA_DON_HANG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KHACH_HANG.TEN_KH)
+            </td>
+            <td>
+                @String.Format("{0:dd/MM/yyyy}", item.NGAY_DAT)
+            </td>
+            <td>
+                @String.Format("{0:dd/MM/yyyy}", item.NGAY_GIAO)
+            </td>
+            <td>
+                @if (item.DA_THANH_TOAN == false)
+                {
+                    <p style="background-color:yellow; font-size:20px ;">chưa thanh toán</p>
+                }
+                else
+                {
+                    <p style="background-color:green; font-size:20px ; color:white ">đa thanh toán</p>
+                }
+            </td>
+            <td>
+                @if (item.TINH_TRANG_GH == false)
+                {
+                    <p style="background-color:yellow; font-size:20px ;">chưa giao</p>
+                }
+                else
+                {
+                    <p style="background-color:green; font-size:20px ; color:white ">đã giao</p>
+                }
+               
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "editDONHANG", new { id = item.MA_DON_HANG }) |
+                @Html.ActionLink("Details", "QLCTDH", new { id = item.MA_DON_HANG }) |
+                @Html.ActionLink("Delete", "DeleteDONHANG", new { id = item.MA_DON_HANG })
+            </td>
+        </tr>
+    }
+
+</table>
+<div>
+    Trang @(Model.PageNumber>Model.PageCount?0:Model.PageNumber) /@Model.PageCount
+</div>
+<div class="Menutrang">
+    @Html.PagedListPager(Model, page => Url.Action("QLDONHANG", new { page = page }))
+    <a href="/Admin/IndexAdmin">QUAY LAI</a>
+</div>
+
+<style>
+    .Menutran li {
+        display: inline
+    }
+</style>

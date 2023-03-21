@@ -1,0 +1,98 @@
+﻿@using WebQuanAoDoAn.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<SAN_PHAM>
+@{
+    ViewBag.Title = "QLSP";
+    Layout = "~/Views/Shared/layoutADMIN.cshtml";
+}
+
+<h2>QUẢN LÝ SẢN PHẨM</h2>
+
+<p>
+    @Html.ActionLink("Thêm Mới", "Themmoisp")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MA_MAU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MA_LOAI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TEN_SP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().GIA_MUA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().GIA_BAN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().SL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MO_TA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().HINH_ANH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().HINH_ANH1)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MAU.TEN_MAU)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LOAI_SP.TEN_LOAI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TEN_SP)
+            </td>
+            <td>
+                @String.Format("{0:0,0}", item.GIA_MUA) đ
+            </td>
+            <td>
+                @String.Format("{0:0,0}", item.GIA_BAN) đ
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MO_TA)
+            </td>
+            <td>
+               <img src="../img/products/@item.HINH_ANH" width="50" />
+            </td>
+            <td>
+                <img src="../img/products/@item.HINH_ANH1"  width="50"/>
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "editsp", new { id = item.MA_SP }) |
+                @Html.ActionLink("Chi Tiết", "Chitietsp", new { id = item.MA_SP }) |
+                @Html.ActionLink("Xóa", "Xoasp", new { id = item.MA_SP })
+            </td>
+        </tr>
+    }
+
+</table>
+<div>
+    Trang @(Model.PageNumber>Model.PageCount?0:Model.PageNumber) /@Model.PageCount
+</div>
+<div class="Menutrang">
+    @Html.PagedListPager(Model, page => Url.Action("QLSP", new { page = page }))
+    <a href="/Admin/IndexAdmin">QUAY LAI</a>
+</div>
+
+
+<style>
+    .Menutran li {
+        display: inline
+    }
+</style>

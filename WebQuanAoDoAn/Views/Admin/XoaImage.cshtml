@@ -1,0 +1,65 @@
+﻿@model WebQuanAoDoAn.Models.HINH_ANH
+
+@{
+    ViewBag.Title = "XoaImage";
+    Layout = "~/Views/Shared/layoutADMIN.cshtml";
+}
+<style>
+    dd, dt{
+        margin-bottom:20px;
+    }
+
+
+    .cha-body h1 {
+        margin-left: 600px;
+    }
+
+    .dl-horizontal {
+        margin-left: 500px;
+    }
+
+    .exit {
+        margin-left: 600px;
+    }
+    .btn-remove {
+        margin-left: 100px;
+    }
+  </style>
+<div class="cha-body">
+    <h1>XÓA HÌNH</h1>
+    <hr />
+
+    <div>
+        <form action="" method="post">
+            <dl class="dl-horizontal">
+                <dt>
+                    mã hình
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.MA_HINH)
+                </dd>
+                <dt>
+                    Tên sp:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SAN_PHAM.TEN_SP)
+                </dd>
+
+                <dt>
+                    Hình sp:
+                </dt>
+
+                <dd>
+                    <img src="~/img/products/@Model.HINH_ANH1" width="80" />
+                </dd>
+                <dd>
+                    <button class="btn-remove">Xác Nhận xóa</button>
+                </dd>
+            </dl>
+        </form>
+    </div>
+    <p class="exit">
+        @Html.ActionLink("Quay Về", "QLIMAGE", "Admin")
+    </p>
+</div>

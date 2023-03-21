@@ -1,0 +1,50 @@
+﻿@model WebQuanAoDoAn.Models.ADMIN
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="~/Content/css-cậpNhậtTTADM.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="grid wide">
+        <div class="form-CONTAINER">
+            <h1>Cập Nhật Lại Thông Tin</h1>
+
+            @using (Html.BeginForm("Thongtinadmin","Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+            {
+                
+                <div class="form-content">
+                    <label for="tenADM">Tên Admin</label>
+                    <input type="text" class="form-control" name="tenADM" id="tenADM" placeholder="Nhập tên" required value="@Model.HO_TEN_AD">
+                </div>
+                <div class="form-content">
+                    <label for="avtarADM">Chọn avatar</label>
+                    <input type="file" class="form-control" name="fileUpload" id="avtarADM" placeholder="Chọn file" required>
+                </div>
+                <div class="img">
+                    <p>Avatar hiện tại</p>
+                    <img src="~/img/avata/@Model.HINH_AD" alt="" width="100">
+                </div>
+                <div class="form-chucnang">
+                    <a href="/Admin/IndexAdmin"> Quay về</a>
+                    <button>Cập Nhật</button>
+                </div>
+            }
+
+
+
+        </div>
+    </div>
+</body>
+</html>
+

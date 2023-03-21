@@ -1,0 +1,116 @@
+﻿@model WebQuanAoDoAn.Models.SAN_PHAM
+
+@{
+    ViewBag.Title = "Xoasp";
+    Layout = "~/Views/Shared/layoutADMIN.cshtml";
+}
+<style>
+    dd, dt{
+        margin-bottom:20px;
+    }
+    
+
+    .cha-body h1 {
+        margin-left: 600px;
+    }
+
+    .dl-horizontal {
+        margin-left: 500px;
+    }
+
+    .exit {
+        margin-left: 600px;
+    }
+    .btn-remove {
+        margin-left: 100px;
+    }
+</style>
+<div class="cha-body">
+<h1>XÓA SẢN PHẨM</h1>
+
+<div>
+    <form action="" method="post">
+        
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+              Tên màu:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MAU.TEN_MAU)
+            </dd>
+
+            <dt>
+                Tên loại:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LOAI_SP.TEN_LOAI)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TEN_SP):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TEN_SP)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.GIA_MUA):
+            </dt>
+
+            <dd>
+                @string.Format("{0:0,0}", Model.GIA_MUA) Đ
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.GIA_BAN):
+            </dt>
+
+            <dd>
+                @string.Format("{0:0,0}", Model.GIA_BAN) Đ
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SL)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SL)
+            </dd>
+
+            @*<dt>
+                @Html.DisplayNameFor(model => model.MO_TA)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MO_TA)
+            </dd>*@
+
+            <dt>
+                Hình trước:
+            </dt>
+
+            <dd>
+                <img src="~/img/products/@Model.HINH_ANH" width="60" />
+            </dd>
+
+            <dt>
+              hình sau:
+            </dt>
+
+            <dd>
+                <img src="~/img/products/@Model.HINH_ANH1" width="60" />
+            </dd>
+            <button class="btn-remove"> xóa </button>
+
+        </dl>
+    </form>
+
+</div>
+<div class="exit">
+    @Html.ActionLink("Quay Về", "QLSP", "Admin")
+</div>
+    </div>

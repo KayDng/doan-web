@@ -1,0 +1,78 @@
+﻿@model WebQuanAoDoAn.Models.HINH_ANH
+
+@{
+    ViewBag.Title = "editImageSp";
+    Layout = "~/Views/Shared/layoutADMIN.cshtml";
+}
+<style>
+    #MA_SP {
+        display: block;
+        width: 100%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555555;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    }
+
+    .file1 {
+        margin-bottom: 14px;
+    }
+
+    .cha-body h1 {
+        margin-left: 600px;
+    }
+
+    .form-horizontal {
+        margin-left: 500px;
+    }
+
+    .exit {
+        margin-left: 600px;
+    }
+</style>
+<div class="cha-body">
+    <h1>SỬA HÌNH ẢNH</h1>
+    <hr />
+    @using (Html.BeginForm("editImageSp", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+           
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.MA_HINH)
+
+            <div class="form-group">
+                <label class="control-label col-md-2"> TÊN SẢN PHẨM </label>
+                <div class="col-md-10">
+                    @Html.DropDownList("MA_SP")
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <label class="control-label col-md-2"> HÌNH-SP</label>
+                <div class="col-md-10">
+                    <input class="file1" type="file" name="fileUpload" required />
+                    @*@ViewBag.Thongbao1*@
+                    <img src="~/img/products/@Model.HINH_ANH1" width="100" /> hình hiện tại
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                    
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="exit">
+        @Html.ActionLink("Quay Về", "QLIMAGE", "Admin")
+    </div>
+</div>

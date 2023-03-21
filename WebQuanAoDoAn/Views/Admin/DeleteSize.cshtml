@@ -1,0 +1,61 @@
+﻿@model WebQuanAoDoAn.Models.KICH_THUOC
+
+@{
+    ViewBag.Title = "DeleteSize";
+    Layout = "~/Views/Shared/layoutADMIN.cshtml";
+}
+<style>
+    dd, dt {
+        margin-bottom: 20px;
+    }
+
+
+    .cha-body h1 {
+        margin-left: 600px;
+    }
+
+    .dl-horizontal {
+        margin-left: 500px;
+    }
+
+    .exit {
+        margin-left: 600px;
+    }
+
+    .btn-remove {
+        margin-left: 100px;
+    }
+</style>
+<div class="cha-body">
+    <h1>XÁC NHẬN XÓA</h1>
+    <hr />
+    <div>
+
+        <form action="" method="post">
+            <dl class="dl-horizontal">
+                <dt>
+                    Tên sản phẩm:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SAN_PHAM.TEN_SP)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.TEN_KICH_THUOC)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TEN_KICH_THUOC)
+                </dd>
+                <dd>
+                    <button class="btn-remove"> Xóa </button>
+                </dd>
+
+            </dl>
+        </form>
+    </div>
+    <p class="exit">
+        @Html.ActionLink("Quay Về", "QLsize", "Admin")
+    </p>
+</div>

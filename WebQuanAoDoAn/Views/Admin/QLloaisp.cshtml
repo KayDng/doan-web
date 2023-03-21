@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WebQuanAoDoAn.Models.LOAI_SP>
+
+@{
+    ViewBag.Title = "QLloaisp";
+    Layout = "~/Views/Shared/layoutADMIN.cshtml";
+}
+
+<h2>QLloaisp</h2>
+<a href="/Admin/IndexAdmin">QUAY LAI</a>
+<p>
+    @Html.ActionLink("Thêm mới ", "themloaisp")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            MA_LOAI:
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TEN_LOAI)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.MA_LOAI
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TEN_LOAI)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "editloaisp", new { id = item.MA_LOAI }) |
+
+                @Html.ActionLink("Delete", "DeleteLoaisp", new { id = item.MA_LOAI })
+            </td>
+        </tr>
+    }
+
+
+</table>

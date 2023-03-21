@@ -1,0 +1,64 @@
+﻿@model IEnumerable<WebQuanAoDoAn.Models.CT_DON_HANG>
+
+
+@{
+    ViewBag.Title = "QLCTDH";
+    Layout = "~/Views/Shared/layoutADMIN.cshtml";
+}
+
+<h2>QLCTDH</h2>
+
+<p>
+
+</p>
+<table class="table">
+    <tr>
+        <td> MÃ ĐƠN </td>
+        <td> TÊN SP</td>
+        <th>
+            SL
+        </th>
+        <th>
+            ĐON GIÁ
+        </th>
+        <th>
+            ĐỊA CHỈ
+        </th>
+        <th>
+            TỔNG TIỀN
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MA_DON_HANG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SAN_PHAM.TEN_SP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SL)
+            </td>
+            <td>
+                @String.Format("{0:0,0}", item.DON_GIA) đ
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DIA_CHI)
+            </td>
+            <td>
+                @String.Format("{0:0,0}", item.TONG_TIEN) đ
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "QLCTDH", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+
+        </tr>
+    }
+    <a href="/Admin/IndexAdmin">QUAY LAI</a>
+</table>
+

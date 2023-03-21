@@ -1,0 +1,76 @@
+.body-ttdh{
+    border: solid 1px rgb(216, 194, 190);
+    width: 35%;
+    margin: 0 auto;
+    margin-top: 10%;
+    border-radius: 4px;
+    box-shadow:1px 3px 4px #9c9393;
+}
+
+
+.td2{
+    font-size: 20px;
+    color: #181818;
+    font-weight: 800;
+}
+.td1{
+font-size: 20px;
+margin-right: 20px;
+}
+.body-ttdh .td-cha{
+    display: flex;
+    margin-bottom: 25px;
+    border-bottom: solid 1px #758180 ;
+}
+.body-ttdh h1{
+    text-align: center;
+    margin-bottom: 25px;
+    margin-top: 20px;
+}
+.body-ttdh{
+    padding: 0 20px;
+}
+.td1,.td2{
+    padding-bottom: 5px;
+}
+.td-cha:last-child{
+    border: none;
+}
+.td-cha{
+    width: 50;
+}
+.td-cha.btn div:first-child{
+    flex-grow: 1;
+}
+.td-cha div{
+    align-self: center;
+}
+.td-cha button{
+    background-color:#07756d ;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+   
+}
+.td-cha button:hover{
+    cursor: pointer;
+    opacity: 0.5;
+}
+.td-cha a{
+    text-decoration: none;
+    color: #07756d;
+    font-size: 20px;
+}
+.td-cha a:hover{
+    filter: brightness(150%);
+    color: #07756d;
+}
+.td-cha input{
+    width: 190px;
+    height: 30px;
+    outline: none;
+}
+.td-cha input:focus{
+    border: solid 1.5px #07756d;
+}

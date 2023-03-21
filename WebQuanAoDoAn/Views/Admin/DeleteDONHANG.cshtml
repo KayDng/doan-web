@@ -1,0 +1,64 @@
+﻿@model WebQuanAoDoAn.Models.DON_DAT_HANG
+
+@{
+    ViewBag.Title = "DeleteDONHANG";
+    Layout = "~/Views/Shared/layoutADMIN.cshtml";
+}
+
+<h2>DeleteDONHANG</h2>
+
+<div>
+    <h4>DON_DAT_HANG</h4>
+    <hr />
+    <form  action="" method="post">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.MA_KH)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MA_KH)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NGAY_DAT)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NGAY_DAT)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NGAY_GIAO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NGAY_GIAO)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DA_THANH_TOAN)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DA_THANH_TOAN)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TINH_TRANG_GH)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TINH_TRANG_GH)
+            </dd>
+            <dd>
+               <button> xóa </button>
+            </dd>
+
+        </dl>
+    </form>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.MA_DON_HANG }) |
+    @Html.ActionLink("Back to List", "Index")*@
+</p>

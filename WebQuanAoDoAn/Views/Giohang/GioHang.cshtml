@@ -1,0 +1,128 @@
+﻿@using WebQuanAoDoAn.Models;
+@model List<Giohang>
+
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/layOutWebQuanAo.cshtml";
+}
+<!-- bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href="~/Content/stylegiohang.css" rel="stylesheet" />
+<section id="cart">
+    <div class="container">
+        <div class="heading-page">
+            <h1>Giỏ hàng của bạn</h1>
+            <p class="count-cart" style="margin:0;">Có <span>@ViewBag.Tongsoluong sản phẩm</span> trong giỏ hàng</p>
+        </div>
+        <div class="row">
+            <div class="contentCart-detail">
+                @*<form action="" method="post" id="cartformpage">*@
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <table class="table-cart">
+                                <thead>
+                                    <tr>
+                                        <th class="image">&nbsp;</th>
+                                        <th class="item">Tên sản phẩm</th>
+                                        <th class="item">Giá</th>
+                                        <th class="item">Số lượng</th>
+                                        <th class="item">Thành tiền</th>
+                                        <th class="remove">&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                    <tr>
+
+
+                                        <td class="image">
+                                            <div>
+                                                <a href="">
+                                                    <img src="/img/products/@item.sAnhsp" alt="FICTION HEAVY TSHIRT" />
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td class="item" width="420px">
+                                            <h3><a href="">@item.sTensp </a></h3>
+                                            <p class="variant">
+                                                <span class="size-color">M / Black</span>
+                                            </p>
+                                        </td>
+                                        <td class="item">
+                                            <p>
+                                                <span class="price">@String.Format("{0:0,0}", item.dDongia)₫</span>
+                                            </p>
+                                        </td>
+                                       
+
+                                        <form action="/Giohang/Capnhatgiohang/@item.iMasp" method="post">
+                                          
+                                        <td class="qty">
+                                            <button type="button" class="qty-btn jstru"> <input class="inputtru" type="submit" value="-" /></button>
+                                            <input type="text" onkeypress="return isNumberKey(event)" size="4" name="txtSoluong" min="1" value="@item.iSoluong" class="item-quantity js-nostring" />
+                                            <button type="button" class="qtyplus qty-btn jscong"> <input class="inputcong" type="submit" value="+" /></button>
+                                        
+                                            
+                                        </td>*
+                                            <td class="item">
+                                                <p>
+                                                    <span class="price"> @String.Format("{0:0,0}", item.dThanhtien)₫</span>
+                                                </p>
+                                            </td>
+                                            <td class="remove">
+                                                <a style="list-style:none; color:black" href="/Giohang/Xoagiohang/@item.iMasp">
+                                                    <i style="cursor: pointer; font-size: 22px;" class="fa-solid fa-xmark"></i>
+                                                </a>
+                                            </td>
+                                           
+                                        </form>
+
+
+                                    </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-5 col-lg-7">
+                            <div class="sidebox-group">
+                                <h3>Ghi chú đơn hàng</h3>
+                                <textarea id="note" name="note" rows="6" placeholder="Ghi chú"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-7 col-lg-5">
+                            <div class="sidebox-order">
+                                <div class="sidebox-order_title">
+                                    <h3>Thông tin đơn hàng</h3>
+                                </div>
+                                <div class="sidebox-order_total">
+                                    <p>
+                                        Tổng tiền:
+                                        <span class="total-price">@String.Format("{0:0,0}", ViewBag.Tongtien)₫</span>
+                                    </p>
+                                </div>
+                                <div class="sidebox-order_text">
+                                    <p>Phí vận chuyển sẽ được tính ở trang thanh toán.<br> Bạn cũng có thể nhập mã giảm giá ở trang thanh toán.</p>
+                                </div>
+                                <div class="sidebox-order_action">
+                                    <a href="/Giohang/Dathang" class="btn">ĐẶT HÀNG</a>
+                                    <p class="link-continue">
+                                        <a href="/WebQuanAo/ALLsanpham">
+                                            <i class="fa fa-reply"></i> Tiếp tục mua hàng
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+              </div>
+            @*</form>*@
+        </div>
+    </div>
+    
+</section>

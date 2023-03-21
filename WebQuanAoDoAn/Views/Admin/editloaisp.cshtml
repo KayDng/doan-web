@@ -1,0 +1,59 @@
+﻿@model WebQuanAoDoAn.Models.LOAI_SP
+
+@{
+    ViewBag.Title = "editloaisp";
+    Layout = "~/Views/Shared/layoutADMIN.cshtml";
+}
+<style>
+
+    .cha-body h1 {
+        margin-left: 600px;
+    }
+
+    .form-horizontal {
+        margin-left: 500px;
+    }
+
+    .exit {
+        margin-left: 600px;
+    }
+</style>
+<div class="cha-body">
+    <h1>SỬA LOẠI SẢN PHẨM </h1>
+    <hr />
+    @using (Html.BeginForm("editloaisp", "Admin"))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.MA_LOAI)
+            <div class="form-group">
+                @Html.LabelFor(model => model.MA_LOAI, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <p> @Model.MA_LOAI</p>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.TEN_LOAI, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @*@Html.EditorFor(model => model.TEN_LOAI, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TEN_LOAI, "", new { @class = "text-danger" })*@
+                    <input type="text" name="TEN_LOAI" id="TEN_LOAI" required value="@Model.TEN_LOAI" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="exit">
+        @Html.ActionLink("Quay về", "QLloaisp", "Admin")
+    </div>
+</div>

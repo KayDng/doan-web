@@ -1,0 +1,138 @@
+﻿
+
+
+<html>
+<head>
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css -->
+    <link href="~/Content/cssthongtindonhang.css" rel="stylesheet" />
+    <link href="~/Content/grid.css" rel="stylesheet" />
+    <link href="~/Content/stylettdh.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <section id="header">
+        <a href="index.html"><img src="" class="" alt=""></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="/WebQuanAo/Index">HOME</a></li>
+                <li><a href="/WebQuanAo/ALLsanpham">SHOP ALL</a></li>
+                <li><a href="">TOPS</a></li>
+                <li><a href="">BOTTOMS</a></li>
+                <li><a href="">OUTERWEAR</a></li>
+                <li><a href="">SALE</a></li>
+                <li><a href="">SIZE</a></li>
+                
+                <a href="#" id="close"><i class="far fa-times-circle"></i></a>
+            </ul>
+        </div>
+
+        <div>
+            <ul class="icon-bar">
+                <li><a href="cart.html" id="lg"><i class="far fa-search"></i></a></li>
+                @if (Session["TaiKhoan"] == null)
+                {
+                    <li><a href="/NguoiDung/DangNhap" id="lg"><i class="far fa-user"></i></a></li>
+                }
+                @*<li><a href="/GioHang/GioHang" id="lg"><i class="far fa-shopping-bag"></i></a></li>*@
+                <li>@Html.Action("GiohangPartial", "Giohang")</li>
+                @if (Session["TaiKhoan"] != null)
+                {
+
+
+                    <li>
+                        <div class="user-cuttom">
+                            <div class="user-cuttom__avatar" >
+                                <img src="/img/limited/1.1.jpg" />
+                            </div>
+                            <p> @Session["ten-khach-hang"].ToString()</p>
+                            <div class="gthoat">
+                                <ul>
+                                    <li>
+                                        <a href="/NguoiDung/TTHoaDonTv/@Session["MaKH"].ToString()"> Thông Tin Đơn Hàng </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/NguoiDung/Logout"> Đăng Xuất </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                     
+                    </li>
+                }
+
+            </ul>
+        </div>
+
+        <div id="mobile">
+            <a href="cart.html"><i class="far fa-search"></i></a>
+            <a href="../html/login.html"><i class="far fa-user"></i></a>
+            <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
+            <i id="bar" class="fa fa-align-justify"></i>
+        </div>
+    </section>
+    <div>
+        @RenderBody()
+    </div>
+
+    <footer class="section-p1" style="padding-bottom:0;">
+        <div class="col">
+            <h3>GIỚI THIỆU <hr></h3>
+
+            <p>Chào mừng bạn đến với ngôi nhà của chúng tôi! Tại đây, mỗi một dòng chữ, mỗi chi tiết và hình ảnh đều là những bằng chứng mang đậm cá tính của chúng tôi, và đang không ngừng phát triển lớn mạnh.</p>
+        </div>
+
+        <div class="col">
+            <h3>Thông Tin Liên Hệ <hr></h3>
+            <p>
+                <i class="fas fa-map-marker-alt icon"></i>
+                9/20 Thạnh Mỹ Lợi, P.Thạnh Mỹ Lợi, TP.Thủ Đức
+            </p>
+            <p>
+                <i class="fas fa-clock icon"></i>
+                8:00 - 21:00
+            </p>
+            <p>
+                <i class="fas fa-phone-alt icon"></i>
+                <a href="tel:0379201809">0379201809</a>
+            </p>
+            <p>
+                <i class="fas fa-envelope icon"></i>
+                <a href="mailto:khanhkt9511@gmail.com">khanhkt9511@gmail.com</a>
+            </p>
+        </div>
+        <div class="col">
+            <h3>MENU <hr></h3>
+            <ul>
+                <li><a href="/WebQuanAo/Index">Trang chủ</a></li>
+                <li><a href="/WebQuanAo/ALLsanpham">Sản phẩm</a></li>
+                <li><a href="#">Hướng dẫn</a></li>
+                <li><a href="#">Bảng size</a></li>
+                <li><a href="#">Liên hệ</a></li>
+                <li><a href="#">Giới thiệu</a></li>
+            </ul>
+        </div>
+        <div class="col">
+            <h3>MẠNG XÃ HỘI <hr></h3>
+            <div class="social-media">
+                <a href="https://www.facebook.com/28.9.001.Me/"><img src="/img/icon/fb.png" alt=""></a>
+                <a href="https://www.instagram.com/28_9_001.me/"><img src="/img/icon/ig.png" alt=""></a>
+            </div>
+        </div>
+    </footer>
+
+    <section class="copyright">
+        <p>KayDng&reg; All Rights Reserved.</p>
+    </section>
+    <script src="~/Scripts/script.js"></script>
+
+</body>
+</html>

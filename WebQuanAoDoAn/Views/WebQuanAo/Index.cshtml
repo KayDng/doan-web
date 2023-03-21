@@ -1,0 +1,225 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/layOutWebQuanAo.cshtml";
+}
+
+<section id="hero">
+    <h1> BLACK <span>FRIDAY</span></h1>
+    <h2>Up to <span>50%</span> <span> OFF</span></h2>
+    <button>Shop Now</button>
+</section>
+
+<section id="product1">
+    <div class="wrapper-heading-home wrapper-heading-home-new">
+        <div class="wrapper-animation">
+            <span class="text-animation">
+                <h2>
+                    <a href="./index.html">
+                        New Arrivals
+                    </a>
+                </h2>
+            </span>
+            <span class="text-animation">
+                <h2>
+                    <a href="./index.html">
+                        New Arrivals
+                    </a>
+                </h2>
+            </span>
+            <span class="text-animation">
+                <h2>
+                    <a href="./index.html">
+                        New Arrivals
+                    </a>
+                </h2>
+            </span>
+            <span class="text-animation">
+                <h2>
+                    <a href="./index.html">
+                        New Arrivals
+                    </a>
+                </h2>
+            </span>
+            <span class="text-animation">
+                <h2>
+                    <a href="./index.html">
+                        New Arrivals
+                    </a>
+                </h2>
+            </span>
+        </div>
+    </div>
+    <div class="pro-container">
+        @*render tu database*@
+        @foreach (var sanpham in Model)
+        {
+
+            <div class="pro">
+                <div class="pro-img">
+                    <picture>
+                        <a href="/WebQuanAo/Detail/@sanpham.MA_SP"><img src="/img/products/@sanpham.HINH_ANH" alt=""></a>
+                    </picture>
+                    <picture>
+                        <a href="/WebQuanAo/Detail/@sanpham.MA_SP"><img src="../img/products/@sanpham.HINH_ANH1" alt=""></a>
+                    </picture>
+                    <div class="buy-btn">
+                        <button><a href="@Url.Action("Themgiohang", "Giohang", new { id = sanpham.MA_SP , strURL= Request.Url.ToString() })">THÊM VÀO GIỎ</a></button>
+                    </div>
+                   
+                </div>
+                <div class="des">
+                    <div class="square">
+                        <i class="fas fa-square" style=" color:#@sanpham.MA_MAU"></i>
+                    </div>
+                    <h5>@sanpham.TEN_SP</h5>
+                    <h4>@String.Format("{0:0,0}", sanpham.GIA_BAN) đ</h4>
+                </div>
+            </div>
+        }
+
+    </div>
+</section>
+
+<section id="banner" class="section-m1">
+    <h1>BLACK FRIDAY</h1>
+    <h2>Up to <span>50% Off</span></h2>
+    <button class="normal">Explore More</buttons>
+</section>
+
+<section id="product1">
+    <div class="wrapper-heading-home wrapper-heading-home-new">
+        <div class="wrapper-animation">
+            <span class="text-animation">
+                <h2>
+                    <a href="/collections/trang-chu">
+                        BRAND LIMITED
+                    </a>
+                </h2>
+            </span>
+            <span class="text-animation">
+                <h2>
+                    <a href="/collections/trang-chu">
+                        BRAND LIMITED
+                    </a>
+                </h2>
+            </span>
+            <span class="text-animation">
+                <h2>
+                    <a href="/collections/trang-chu">
+                        BRAND LIMITED
+                    </a>
+                </h2>
+            </span>
+            <span class="text-animation">
+                <h2>
+                    <a href="/collections/trang-chu">
+                        BRAND LIMITED
+                    </a>
+                </h2>
+            </span>
+            <span class="text-animation">
+                <h2>
+                    <a href="/collections/trang-chu">
+                        BRAND LIMITED
+                    </a>
+                </h2>
+            </span>
+        </div>
+    </div>
+    <div class="pro-container">
+        <div class="pro">
+            <div class="pro-img">
+                <picture>
+                    <img src="/img/limited/1.jpg" alt="">
+                </picture>
+                <picture>
+                    <a href="./cart.html"><img src="../img/limited/1.1.jpg" alt=""></a>
+                </picture>
+                <div class="buy-btn">
+                    <button>THÊM VÀO GIỎ</button>
+                </div>
+            </div>
+            <div class="des">
+                <div class="square">
+                    <i class="fas fa-square" style="color: #ececec;"></i>
+                </div>
+                <h5>GREEN COBWEB TEE</h5>
+                <h4>380,000₫</h4>
+            </div>
+        </div>
+        <div class="pro">
+            <div class="pro-img">
+                <picture>
+                    <img src="../img/limited/2.jpg" alt="">
+                </picture>
+                <picture>
+                    <a href="./cart.html"><img src="../img/limited/2.1.jpg" alt=""></a>
+                </picture>
+                <div class="buy-btn">
+                    <button>THÊM VÀO GIỎ</button>
+                </div>
+            </div>
+            <div class="des">
+                <div class="square">
+                    <i class="fas fa-square"></i>
+                    <i class="fas fa-square" style="color: #ececec;"></i>
+                </div>
+                <h5>H MONOGRAM GILE</h5>
+                <h4>420,000₫</h4>
+            </div>
+        </div>
+        <div class="pro">
+            <div class="pro-img">
+                <picture>
+                    <img src="../img/limited/3.jpg" alt="">
+                </picture>
+                <picture>
+                    <a href="./cart.html"><img src="../img/limited/3.1.jpg" alt=""></a>
+                </picture>
+                <div class="buy-btn">
+                    <button>THÊM VÀO GIỎ</button>
+                </div>
+            </div>
+            <div class="des">
+                <div class="square">
+                    <i class="fas fa-square"></i>
+                </div>
+                <h5>H BLACK TROUSER PANTS</h5>
+                <h4>490,000₫</h4>
+            </div>
+        </div>
+        <div class="pro">
+            <div class="pro-img">
+                <picture>
+                    <img src="../img/limited/4.jpg" alt="">
+                </picture>
+                <picture>
+                    <a href="./cart.html"><img src="../img/limited/4.1.jpg" alt=""></a>
+                </picture>
+                <div class="buy-btn">
+                    <button>THÊM VÀO GIỎ</button>
+                </div>
+            </div>
+            <div class="des">
+                <div class="square">
+                    <i class="fas fa-square"></i>
+                </div>
+                <h5>H MONOGRAM BAGS</h5>
+                <h4>650,000₫</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="newsletter" class="section-p1 section-m1" style="margin-bottom:0 ;">
+    <div class="newstext">
+        <h4>ĐĂNG KÝ NGAY</h4>
+        <p>Để lại email để nhận được thông tin về sản phẩm mới nhất của chúng tôi và <span>các ưu đãi đặc biệt.</span></p>
+    </div>
+    <div class="form">
+        <input type="gmail" placeholder="Vui lòng nhập email tại đây...">
+        <button class="normal">ĐĂNG KÝ</button>
+    </div>
+</section>
+

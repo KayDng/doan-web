@@ -1,0 +1,79 @@
+﻿
+@using WebQuanAoDoAn.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<CT_DON_HANG>
+@helper Truncate(String input,  int length)
+    {
+        if(input.Length < length)
+        {
+            @input
+        } 
+        else
+        {
+            @input.Substring(0, length)<text>...</text>
+        }    
+    }
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/style-Table.css" rel="stylesheet" />
+    <link href="~/Content/grid.css" rel="stylesheet" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <title>TTHoaDonTv</title>
+</head>
+<body>
+    <div>
+        <div class="grid wide">
+            <div class="responsive-table">
+                <h1>Chi Tiết Hóa Đơn</h1>
+                <div class="row title ">
+                    <div class="col l-2 c-2 m-2">Mã Đơn</div>
+                    <div class="col l-2 c-2 m-2">Tên Sản phẩm</div>
+                    <div class="col l-2 c-2 m-2">Số Lượng</div>
+                    <div class="col l-2 c-2 m-2">Đơn Giá</div>
+                    <div class="col l-2 c-2 m-2">Địa Chỉ</div>
+                    <div class="col l-2 c-2 m-2">Tổng Tiền</div>
+                </div>
+
+                @foreach (var item in Model)
+                {
+                    <div class="row title1">
+                        <div class="col l-2 c-2 m-2">#@item.MA_DON_HANG </div>
+                        <div class="col l-2 c-2 m-2"> <a href="/WebQuanAo/Detail/@item.SAN_PHAM.MA_SP">@Truncate(@item.SAN_PHAM.TEN_SP, 10) </a></div>
+                        <div class="col l-2 c-2 m-2"> @item.SL</div>
+                        <div class="col l-2 c-2 m-2"> @String.Format("{0:0,0}", item.DON_GIA) đ</div>
+                        <div class="col l-2 c-2 m-2"> @item.DIA_CHI</div>
+                        <div class="col l-2 c-2 m-2"> @String.Format("{0:0,0}", item.TONG_TIEN) đ</div>
+                    </div>
+                }
+                <div class="row PTM">
+                    <div class="PT">
+                        <div>
+                            Trang @(Model.PageNumber>Model.PageCount?0:Model.PageNumber) /@Model.PageCount
+                        </div>
+                        <div class="Menutrang">
+                            @Html.PagedListPager(Model, page => Url.Action("TTctHoadon", new { page = page }))
+                        </div>
+
+                        <style>
+                            .Menutran li {
+                                display: inline
+                            }
+                        </style>
+                    </div>
+                    <a href="/NguoiDung/TTHoaDonTv/@Session["MaKH"].ToString()"> Quay Lại</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
+

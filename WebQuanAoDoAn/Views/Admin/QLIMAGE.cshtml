@@ -1,0 +1,55 @@
+﻿@using WebQuanAoDoAn.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<HINH_ANH>
+
+@{
+    ViewBag.Title = "QLIMAGE";
+    Layout = "~/Views/Shared/layoutADMIN.cshtml";
+}
+
+<h2>QLIMAGE</h2>
+
+<p>
+    @Html.ActionLink("Thêm Mới", "ThemmoiIMAGESP")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            TÊN-SP
+        </th>
+        <th>
+            HINH_SP
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SAN_PHAM.TEN_SP)
+            </td>
+            <td>
+                <img src="~/img/products/@item.HINH_ANH1" width="100" />
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "editImageSp", new { id = item.MA_HINH }) |
+                @Html.ActionLink("Xóa", "XoaImage", new { id = item.MA_HINH })
+            </td>
+        </tr>
+    }
+
+</table>
+<div>
+    Trang @(Model.PageNumber>Model.PageCount?0:Model.PageNumber) /@Model.PageCount
+</div>
+<div class="Menutrang">
+    @Html.PagedListPager(Model, page => Url.Action("QLIMAGE", new { page = page }))
+    <a href="/Admin/IndexAdmin">QUAY LAI</a>
+</div>
+
+<style>
+    .Menutran li {
+        display: inline
+    }
+</style>

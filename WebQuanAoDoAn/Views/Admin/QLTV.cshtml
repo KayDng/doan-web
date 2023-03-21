@@ -1,0 +1,105 @@
+﻿@using WebQuanAoDoAn.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<KHACH_HANG>
+@{
+    ViewBag.Title = "QLTV";
+    Layout = "~/Views/Shared/layoutADMIN.cshtml";
+}
+
+<h2>QLTV</h2>
+
+
+<form method="post" action="" style="margin: 0 auto">
+    <input type="text" name="tk" value="" />
+    <button>Tìm kiếm theo SDT</button>
+</form>
+
+<table class="table">
+    <tr>
+        <th>
+            MÃ THÀNH VIÊN
+        </th>
+        <th>
+            TEN_KH
+        </th>
+        <th>
+            SDT
+        </th>
+        <th>
+            DIA_CHI
+        </th>
+        <th>
+            TEN_DN
+        </th>
+        <th>
+            MK_DN
+        </th>
+        <th>
+            EMAIL
+        </th>
+        <th>
+            NGAY_SINH
+        </th>
+        <th>
+            HINH_ANH
+        </th>
+        <th>
+            GIOI_TINH
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MA_KH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TEN_KH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DIA_CHI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TEN_DN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MK_DN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMAIL)
+            </td>
+            <td>
+                @String.Format("{0:dd/MM/yyyy}", item.NGAY_SINH)
+            </td>
+            <td>
+                <img src="~/img/avatarTV/@item.HINH_ANH" width="50" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GIOI_TINH)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "DeleteTV", new { id = item.MA_KH })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    Trang @(Model.PageNumber>Model.PageCount?0:Model.PageNumber) /@Model.PageCount
+</div>
+<div class="Menutrang">
+    @Html.PagedListPager(Model, page => Url.Action("QLTV", new { page = page }))
+    <a href="/Admin/IndexAdmin">QUAY LAI</a>
+</div>
+
+<style>
+    .Menutran li {
+        display: inline
+    }
+</style>

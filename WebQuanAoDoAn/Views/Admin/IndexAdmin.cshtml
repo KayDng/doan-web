@@ -1,0 +1,947 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <!-- css -->
+
+    <link href="~/Content/cssADMIN.css" rel="stylesheet" />
+    <!-- fullcalendar -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.11.0/main.min.css,npm/fullcalendar@5.11.0/main.min.css" />
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+    <!-- ======== sidebar nav =========== -->
+    <section id="sidebar-nav-wrapper">
+        <div class="navbar-logo">
+            <a href="./index.html">
+                <img src="../img/logo/logo.png" width="100px" alt="logo" />
+            </a>
+        </div>
+        <nav class="sidebar-nav ">
+            <ul style="padding: 0;">
+                <li class="nav-item active">
+                    <a href="./index.html">
+                        <span class="icon">
+                            <i class="fa-solid fa-house"></i>
+                        </span>
+                        <span class="text">Trang Chủ</span>
+                    </a>
+                </li>
+                <li class="nav-item nav-item-has-children ">
+                    <a href="#0"
+                       class="collapsed"
+                       data-bs-toggle="collapse"
+                       data-bs-target="#ddmenu_1"
+                       aria-controls="ddmenu_1"
+                       aria-expanded="false"
+                       aria-label="Toggle navigation">
+                        <span class="icon">
+                            <i class="fa-solid fa-clipboard-list"></i>
+                        </span>
+                        <span class="text">Sản Phẩm </span>
+                    </a>
+                    <ul id="ddmenu_1" class="collapse">
+                        <li>
+                            <a href="/Admin/QLSP"> Sản Phẩm </a>
+                        </li>
+                        <li>
+                            <a href="/Admin/QLloaisp"> Loại </a>
+                        </li>
+                        <li>
+                            <a href="/Admin/QLIMAGE"> IMG </a>
+                        </li>
+                        <li>
+                            <a href="typography.html"> Typography </a>
+                        </li>
+                    </ul>
+                </li>
+                <span class="divider"><hr /></span>
+                <li class="nav-item nav-item-has-children">
+                    <a href="#0"
+                       class="collapsed"
+                       data-bs-toggle="collapse"
+                       data-bs-target="#ddmenu_4"
+                       aria-controls="ddmenu_4"
+                       aria-expanded="false"
+                       aria-label="Toggle navigation">
+                        <span class="icon">
+                            <svg width="22"
+                                 height="22"
+                                 viewBox="0 0 22 22"
+                                 fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.66675 4.58325V16.4999H19.2501V4.58325H3.66675ZM5.50008 14.6666V6.41659H8.25008V14.6666H5.50008ZM10.0834 14.6666V11.4583H12.8334V14.6666H10.0834ZM17.4167 14.6666H14.6667V11.4583H17.4167V14.6666ZM10.0834 9.62492V6.41659H17.4167V9.62492H10.0834Z" />
+                            </svg>
+                        </span>
+                        <span class="text">Thống Kê </span>
+                    </a>
+                    <ul id="ddmenu_4" class="collapse dropdown-nav">
+                        <li>
+                            <a href="/Admin/QLDONHANG"> DS Đơn Hàng </a>
+                        </li>
+                        <li>
+                            <a href="buttons.html"> Buttons </a>
+                        </li>
+                        <li>
+                            <a href="cards.html"> Cards </a>
+                        </li>
+                        <li>
+                            <a href="typography.html"> Typography </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item nav-item-has-children">
+                    <a href="#0"
+                       class="collapsed"
+                       data-bs-toggle="collapse"
+                       data-bs-target="#ddmenu_55"
+                       aria-controls="ddmenu_55"
+                       aria-expanded="false"
+                       aria-label="Toggle navigation">
+                        <span class="icon">
+                            <svg width="22"
+                                 height="22"
+                                 viewBox="0 0 22 22"
+                                 fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.83325 19.25V17.4167H18.3333V19.25H1.83325ZM18.3333 7.33333V4.58333H16.4999V7.33333H18.3333ZM18.3333 2.75C18.8195 2.75 19.2858 2.94315 19.6296 3.28697C19.9734 3.63079 20.1666 4.0971 20.1666 4.58333V7.33333C20.1666 7.81956 19.9734 8.28588 19.6296 8.6297C19.2858 8.97351 18.8195 9.16667 18.3333 9.16667H16.4999V11.9167C16.4999 12.8891 16.1136 13.8218 15.426 14.5094C14.7383 15.197 13.8057 15.5833 12.8333 15.5833H7.33325C6.36079 15.5833 5.42816 15.197 4.74053 14.5094C4.05289 13.8218 3.66659 12.8891 3.66659 11.9167V2.75H18.3333ZM14.6666 4.58333H5.49992V11.9167C5.49992 12.4029 5.69307 12.8692 6.03689 13.213C6.38071 13.5568 6.84702 13.75 7.33325 13.75H12.8333C13.3195 13.75 13.7858 13.5568 14.1296 13.213C14.4734 12.8692 14.6666 12.4029 14.6666 11.9167V4.58333Z" />
+                            </svg>
+                        </span>
+                        <span class="text">Icons</span>
+                    </a>
+                    <ul id="ddmenu_55" class="collapse dropdown-nav">
+                        <li>
+                            <a href="icons.html"> LineIcons </a>
+                        </li>
+                        <li>
+                            <a href="mdi-icons.html"> MDI Icons </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item nav-item-has-children">
+                    <a href="#0"
+                       class="collapsed"
+                       data-bs-toggle="collapse"
+                       data-bs-target="#ddmenu_5"
+                       aria-controls="ddmenu_5"
+                       aria-expanded="false"
+                       aria-label="Toggle navigation">
+                        <span class="icon">
+                            <i class="fa-solid fa-users"></i>
+                        </span>
+                        <span class="text"> Người Dùng </span>
+                    </a>
+                    <ul id="ddmenu_5" class="collapse dropdown-nav">
+                        <li>
+                            <a href="">Quản Trị Viên</a>
+                        </li>
+                        <li>
+                            <a href="/Admin/QLTV">Khách Hàng</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="/Admin/QLsize">
+                        <span class="icon">
+                            <i class="fa-solid fa-shirt"></i>
+                        </span>
+                        <span class="text">Size</span>
+                    </a>
+                </li>
+                <span class="divider"><hr /></span>
+
+                <li class="nav-item">
+                    <a href="notification.html">
+                        <span class="icon">
+                            <svg width="22"
+                                 height="22"
+                                 viewBox="0 0 22 22"
+                                 fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.16667 19.25H12.8333C12.8333 20.2584 12.0083 21.0834 11 21.0834C9.99167 21.0834 9.16667 20.2584 9.16667 19.25ZM19.25 17.4167V18.3334H2.75V17.4167L4.58333 15.5834V10.0834C4.58333 7.24171 6.41667 4.76671 9.16667 3.94171V3.66671C9.16667 2.65837 9.99167 1.83337 11 1.83337C12.0083 1.83337 12.8333 2.65837 12.8333 3.66671V3.94171C15.5833 4.76671 17.4167 7.24171 17.4167 10.0834V15.5834L19.25 17.4167ZM15.5833 10.0834C15.5833 7.51671 13.5667 5.50004 11 5.50004C8.43333 5.50004 6.41667 7.51671 6.41667 10.0834V16.5H15.5833V10.0834Z" />
+                            </svg>
+                        </span>
+                        <span class="text">Thông Báo</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </section>
+    <div class="overlay"></div>
+    <!-- ======== main-wrapper =========== -->
+    <main id="main-wrapper">
+        <!-- ========== header========== -->
+        <header id="header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-6">
+                        <div class="header-left d-flex align-items-center">
+                            <div class="menu-toggle-btn mr-20">
+                                <button id="menu-toggle" class="main-btn primary-btn btn-hover">
+                                    <i class="fa-solid fa-caret-left"></i>
+                                    Menu
+                                </button>
+                            </div>
+                            <div class="header-search d-none d-md-flex">
+                                <form action="#">
+                                    <input type="text" placeholder="Search..." />
+                                    <button><i class="fa-solid fa-magnifying-glass" style="color: #aeb1b6;"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-6">
+                        <div class="header-right">
+                            <!-- notification start -->
+                            <div class="notification-box ml-15 d-none d-md-flex">
+                                <button class="dropdown-toggle" type="button" id="notification" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-bell"></i>
+                                    <span>2</span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notification">
+                                    <li>
+                                        <a href="#0">
+                                            <div class="image">
+                                                <img src="../img/avata/2.jpg" alt="" />
+                                            </div>
+                                            <div class="content">
+                                                <h6>
+                                                    VVH
+                                                    <span class="text-regular">
+                                                        Đã đặt một sản phẩm
+                                                    </span>
+                                                </h6>
+                                                <p>
+                                                    Giao hàng giờ hành chính
+                                                </p>
+                                                <span>10 phút trước</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#0">
+                                            <div class="image">
+                                                <img src="../img/avata/1.jpg" alt="" />
+                                            </div>
+                                            <div class="content">
+                                                <h6>
+                                                    KayDng
+                                                    <span class="text-regular">
+                                                        Đã đặt một sản phẩm
+                                                    </span>
+                                                </h6>
+                                                <p>
+                                                    Giao hàng giờ hành chính
+                                                </p>
+                                                <span>10 phút trước</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- notification end -->
+                            <!-- message start -->
+                            <div class="header-message-box ml-15 d-none d-md-flex">
+                                <button class="dropdown-toggle" type="button" id="message" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <span>2</span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="message">
+                                    <li>
+                                        <a href="#0">
+                                            <div class="image">
+                                                <img src="../img/avata/2.jpg" alt="" />
+                                            </div>
+                                            <div class="content">
+                                                <h6>VVH</h6>
+                                                <p>Chào! Tôi muốn được tư vấn ...</p>
+                                                <span>10 phút trước</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#0">
+                                            <div class="image">
+                                                <img src="../img/avata/1.jpg" alt="" />
+                                            </div>
+                                            <div class="content">
+                                                <h6>KayDng</h6>
+                                                <p>Tôi muốn được hỗ trợ về sản phẩm</p>
+                                                <span>12 mins ago</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- message end -->
+                            <!-- profile start -->
+                            <div class="profile-box ml-15">
+                                <button class="dropdown-toggle bg-transparent border-0"
+                                        type="button"
+                                        id="profile"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                    <div class="profile-info">
+                                        <div class="info">
+                                            <h6>@Session["ten-adm"].ToString()</h6>
+                                            <div class="image">
+                                                <img src="/img/avata/@Session["avatar-admin"].ToString()"
+                                                     alt="" />
+                                                <span class="status"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <i class="fa-solid fa-angle-down" style="font-weight: 600;"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end"
+                                    aria-labelledby="profile">
+                                    <li>
+                                        <a href="/Admin/Thongtinadmin/@Session["tendn-ADM"].ToString()">
+                                            <i class="fa-solid fa-user"></i> Thông Tin Cá Nhân
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#0">
+                                            <i class="fa-solid fa-bell"></i> Thông Báo
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#0"> <i class="fa-solid fa-envelope"></i> Tin Nhắn </a>
+                                    </li>
+                                    <li>
+                                        <a href="#0"> <i class="fa-solid fa-gear"></i> Cài Đặt </a>
+                                    </li>
+                                    <li>
+                                        <a href="/Admin/Logout"> <i class="fa-solid fa-arrow-right-to-bracket"></i> Đăng Xuất </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- profile end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ========== section ========== -->
+        <section class="section">
+            <div class="container-fluid" style="background-color: #242526;">
+                <!-- ========== title-wrapper start ========== -->
+                <div class="title-wrapper pt-30">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="title mb-30">
+                                <h2>Trang Chủ</h2>
+                            </div>
+                        </div>
+                        <!-- end col -->
+                        <div class="col-md-6">
+                            <div class="breadcrumb-wrapper mb-30">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active" aria-current="page">
+                                            Trang Chủ
+                                        </li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                        <!-- end col -->
+                    </div>
+                    <!-- end row -->
+                </div>
+                <!-- ========== title-wrapper end ========== -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                        <div class="icon-card mb-30">
+                            <div class="icon purple">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </div>
+                            <div class="content">
+                                <h6 class="mb-10">Đơn Hàng Mới</h6>
+                                <h3 class="text-bold mb-10">@Html.Action("SLDHpartiaview", "Admin")</h3>
+                                <p class="text-sm text-success">
+                                    +2.00%
+                                    <span class="text-gray">(30 ngày)</span>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- End Icon Cart -->
+                    </div>
+                    <!-- End Col -->
+                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                        <div class="icon-card mb-30">
+                            <div class="icon success">
+                                <i class="fa-solid fa-money-bill-trend-up"></i>
+                            </div>
+                            <div class="content">
+                                <h6 class="mb-10">Tổng Thu Nhập</h6>
+                                <h3 class="text-bold mb-10">174,567đ</h3>
+                                <p class="text-sm text-success">
+                                    +5.45%
+                                    <span class="text-gray">Tăng</span>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- End Icon Cart -->
+                    </div>
+                    <!-- End Col -->
+                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                        <div class="icon-card mb-30">
+                            <div class="icon primary">
+                                <i class="fa-brands fa-cc-amazon-pay"></i>
+                            </div>
+                            <div class="content">
+                                <h6 class="mb-10">Tổng Chi Phí</h6>
+                                <h3 class="text-bold mb-10">240,567đ</h3>
+                                <p class="text-sm text-danger">
+                                    -2.00%
+                                    <span class="text-gray">Chi Phí</span>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- End Icon Cart -->
+                    </div>
+                    <!-- End Col -->
+                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                        <div class="icon-card mb-30">
+                            <div class="icon orange">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <div class="content">
+                                <h6 class="mb-10">Người Dùng</h6>
+                                <h3 class="text-bold mb-10">@Html.Action("SLThanhViênpartiaview", "Admin")</h3>
+                                <p class="text-sm text-danger">
+                                    -25.00%
+                                    <span class="text-gray"> Thu Nhập</span>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- End Icon Cart -->
+                    </div>
+                    <!-- End Col -->
+                </div>
+                <!-- End Row -->
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="card-style style1 calendar-card mb-30">
+                            <div id="calendar-mini"></div>
+                        </div>
+                    </div>
+                    <!-- End Col -->
+                    <div class="col-lg-7">
+                        <div class="card-style style1 mb-30">
+                            <div class="
+                    title
+                    d-flex
+                    flex-wrap
+                    align-items-center
+                    justify-content-between
+                  ">
+                                <div class="left">
+                                    <h6 class="text-medium mb-30">Lịch sử đặt hàng</h6>
+                                </div>
+                                <div class="right">
+                                    <div class="select-style-1">
+                                        <div class="select-position select-sm">
+                                            <select class="light-bg">
+                                                <option value="">Hôm nay</option>
+                                                <option value="">Hôm qua</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- end select -->
+                                </div>
+                            </div>
+                            <!-- End Title -->
+                            <div class="table-responsive">
+                                <table class="table top-selling-table">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <h6 class="text-sm text-medium">Sản Phẩm</h6>
+                                            </th>
+                                            <th class="min-width">
+                                                <h6 class="text-sm text-medium">
+                                                    Loại <i class="fa-solid fa-arrows-up-down"></i>
+                                                </h6>
+                                            </th>
+                                            <th class="min-width">
+                                                <h6 class="text-sm text-medium">
+                                                    Giá <i class="fa-solid fa-arrows-up-down"></i>
+                                                </h6>
+                                            </th>
+                                            <th class="min-width">
+                                                <h6 class="text-sm text-medium">
+                                                    Tình Trạng <i class="fa-solid fa-arrows-up-down"></i>
+                                                </h6>
+                                            </th>
+                                            <th>
+                                                <h6 class="text-sm text-medium text-end">
+                                                    Tác Vụ <i class="fa-solid fa-arrows-up-down"></i>
+                                                </h6>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="product">
+                                                    <div class="image">
+                                                        <img src="../img/products/1.jpg"
+                                                             alt="" />
+                                                    </div>
+                                                    <p class="text-sm">Ten</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm">LOAI</p>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm">TIEN</p>
+                                            </td>
+                                            <td>
+                                                <span class="status-btn close-btn">Pending</span>
+                                            </td>
+                                            <td>
+                                                <div class="action justify-content-end">
+                                                    <button class="edit">
+                                                        <i class="fa-solid fa-pencil"></i>
+                                                    </button>
+                                                    <button class="more-btn ml-10 dropdown-toggle"
+                                                            id="moreAction1"
+                                                            data-bs-toggle="dropdown"
+                                                            aria-expanded="false">
+                                                        <i class="fa-solid fa-ellipsis"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-end"
+                                                        aria-labelledby="moreAction1">
+                                                        <li class="dropdown-item">
+                                                            <a href="#0" class="text-gray">Xóa</a>
+                                                        </li>
+                                                        <li class="dropdown-item">
+                                                            <a href="#0" class="text-gray">Chỉnh Sửa</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="product">
+                                                    <div class="image">
+                                                        <img src="../img/products/1.jpg"
+                                                             alt="" />
+                                                    </div>
+                                                    <p class="text-sm">Ten</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm">LOAI</p>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm">TIEN</p>
+                                            </td>
+                                            <td>
+                                                <span class="status-btn warning-btn">Refund</span>
+                                            </td>
+                                            <td>
+                                                <div class="action justify-content-end">
+                                                    <button class="edit">
+                                                        <i class="fa-solid fa-pencil"></i>
+                                                    </button>
+                                                    <button class="more-btn ml-10 dropdown-toggle"
+                                                            id="moreAction1"
+                                                            data-bs-toggle="dropdown"
+                                                            aria-expanded="false">
+                                                        <i class="fa-solid fa-ellipsis"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-end"
+                                                        aria-labelledby="moreAction1">
+                                                        <li class="dropdown-item">
+                                                            <a href="#0" class="text-gray">Xóa</a>
+                                                        </li>
+                                                        <li class="dropdown-item">
+                                                            <a href="#0" class="text-gray">Chỉnh Sửa</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="product">
+                                                    <div class="image">
+                                                        <img src="../img/products/1.jpg"
+                                                             alt="" />
+                                                    </div>
+                                                    <p class="text-sm">Ten</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm">LOAI</p>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm">TIEN</p>
+                                            </td>
+                                            <td>
+                                                <span class="status-btn success-btn">Completed</span>
+                                            </td>
+                                            <td>
+                                                <div class="action justify-content-end">
+                                                    <button class="edit">
+                                                        <i class="fa-solid fa-pencil"></i>
+                                                    </button>
+                                                    <button class="more-btn ml-10 dropdown-toggle"
+                                                            id="moreAction1"
+                                                            data-bs-toggle="dropdown"
+                                                            aria-expanded="false">
+                                                        <i class="fa-solid fa-ellipsis"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-end"
+                                                        aria-labelledby="moreAction1">
+                                                        <li class="dropdown-item">
+                                                            <a href="#0" class="text-gray">Xóa</a>
+                                                        </li>
+                                                        <li class="dropdown-item">
+                                                            <a href="#0" class="text-gray">Chỉnh Sửa</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="product">
+                                                    <div class="image">
+                                                        <img src="../img/products/1.jpg"
+                                                             alt="" />
+                                                    </div>
+                                                    <p class="text-sm">Ten</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm">LOAI</p>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm">TIEN</p>
+                                            </td>
+                                            <td>
+                                                <span class="status-btn close-btn">Canceled</span>
+                                            </td>
+                                            <td>
+                                                <div class="action justify-content-end">
+                                                    <button class="edit">
+                                                        <i class="fa-solid fa-pencil"></i>
+                                                    </button>
+                                                    <button class="more-btn ml-10 dropdown-toggle"
+                                                            id="moreAction1"
+                                                            data-bs-toggle="dropdown"
+                                                            aria-expanded="false">
+                                                        <i class="fa-solid fa-ellipsis"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-end"
+                                                        aria-labelledby="moreAction1">
+                                                        <li class="dropdown-item">
+                                                            <a href="#0" class="text-gray">Xóa</a>
+                                                        </li>
+                                                        <li class="dropdown-item">
+                                                            <a href="#0" class="text-gray">Chỉnh Sửa</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <!-- End Table -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Col -->
+                </div>
+                <!-- End Row -->
+                <div class="row">
+                    <div class="">
+                        <div class="card-style mb-30">
+                            <div class="
+                    title
+                    d-flex
+                    flex-wrap
+                    justify-content-between
+                    align-items-center
+                  ">
+                                <div class="left">
+                                    <h6 class="text-medium mb-30">Bán Chạy Nhất</h6>
+                                </div>
+                                <div class="right">
+                                    <div class="select-style-1">
+                                        <div class="select-position select-sm">
+                                            <select class="light-bg">
+                                                <option value="">Năm</option>
+                                                <option value="">Tháng</option>
+                                                <option value="">Tuần</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- end select -->
+                                </div>
+                            </div>
+                            <!-- End Title -->
+                            <div class="table-responsive">
+                                <table class="table top-selling-table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>
+                                                <h6 class="text-sm text-medium">Sản Phẩm</h6>
+                                            </th>
+                                            <th class="min-width">
+                                                <h6 class="text-sm text-medium">Loại </h6>
+                                            </th>
+                                            <th class="min-width">
+                                                <h6 class="text-sm text-medium">Giá </h6>
+                                            </th>
+                                            <th class="min-width">
+                                                <h6 class="text-sm text-medium">Đã Bán</h6>
+                                            </th>
+                                            <th class="min-width">
+                                                <h6 class="text-sm text-medium">Lợi Nhuận</h6>
+                                            </th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="check-input-primary">
+                                                    <input class="form-check-input"
+                                                           type="checkbox"
+                                                           id="checkbox-1" />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="product">
+                                                    <div class="image">
+                                                        <img src="../img/products/1.jpg"
+                                                             alt="" />
+                                                    </div>
+                                                    <p class="text-sm">Ten</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm">LOAI</p>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm">TIEN</p>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm">43</p>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm">TIEN</p>
+                                            </td>
+                                            <td>
+                                                <div class="action justify-content-end">
+                                                    <button class="more-btn ml-10 dropdown-toggle"
+                                                            id="moreAction1"
+                                                            data-bs-toggle="dropdown"
+                                                            aria-expanded="false">
+                                                        <i class="fa-solid fa-ellipsis"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-end"
+                                                        aria-labelledby="moreAction1">
+                                                        <li class="dropdown-item">
+                                                            <a href="#0" class="text-gray">Xóa</a>
+                                                        </li>
+                                                        <li class="dropdown-item">
+                                                            <a href="#0" class="text-gray">Chỉnh Sửa</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="check-input-primary">
+                                                    <input class="form-check-input"
+                                                           type="checkbox"
+                                                           id="checkbox-1" />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="product">
+                                                    <div class="image">
+                                                        <img src="../img/products/1.jpg"
+                                                             alt="" />
+                                                    </div>
+                                                    <p class="text-sm">TEN</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm">LOAI</p>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm">TIEN</p>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm">13</p>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm">TIEN</p>
+                                            </td>
+                                            <td>
+                                                <div class="action justify-content-end">
+                                                    <button class="more-btn ml-10 dropdown-toggle"
+                                                            id="moreAction1"
+                                                            data-bs-toggle="dropdown"
+                                                            aria-expanded="false">
+                                                        <i class="fa-solid fa-ellipsis"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-end"
+                                                        aria-labelledby="moreAction1">
+                                                        <li class="dropdown-item">
+                                                            <a href="#0" class="text-gray">Xóa</a>
+                                                        </li>
+                                                        <li class="dropdown-item">
+                                                            <a href="#0" class="text-gray">Chỉnh Sửa</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="check-input-primary">
+                                                    <input class="form-check-input"
+                                                           type="checkbox"
+                                                           id="checkbox-1" />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="product">
+                                                    <div class="image">
+                                                        <img src="../img/products/1.jpg"
+                                                             alt="" />
+                                                    </div>
+                                                    <p class="text-sm">Ten</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm">LOAI</p>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm">TIEN</p>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm">32</p>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm">TIEN</p>
+                                            </td>
+                                            <td>
+                                                <div class="action justify-content-end">
+                                                    <button class="more-btn ml-10 dropdown-toggle"
+                                                            id="moreAction1"
+                                                            data-bs-toggle="dropdown"
+                                                            aria-expanded="false">
+                                                        <i class="fa-solid fa-ellipsis"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-end"
+                                                        aria-labelledby="moreAction1">
+                                                        <li class="dropdown-item">
+                                                            <a href="#0" class="text-gray">Xóa</a>
+                                                        </li>
+                                                        <li class="dropdown-item">
+                                                            <a href="#0" class="text-gray">Chỉnh Sửa</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="check-input-primary">
+                                                    <input class="form-check-input"
+                                                           type="checkbox"
+                                                           id="checkbox-1" />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="product">
+                                                    <div class="image">
+                                                        <img src="../img/products/1.jpg"
+                                                             alt="" />
+                                                    </div>
+                                                    <p class="text-sm">Ten</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm">LOAI</p>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm">TIEN</p>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm">23</p>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm">TIEN</p>
+                                            </td>
+                                            <td>
+                                                <div class="action justify-content-end">
+                                                    <button class="more-btn ml-10 dropdown-toggle"
+                                                            id="moreAction1"
+                                                            data-bs-toggle="dropdown"
+                                                            aria-expanded="false">
+                                                        <i class="fa-solid fa-ellipsis"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-end"
+                                                        aria-labelledby="moreAction1">
+                                                        <li class="dropdown-item">
+                                                            <a href="#0" class="text-gray">Xóa</a>
+                                                        </li>
+                                                        <li class="dropdown-item">
+                                                            <a href="#0" class="text-gray">Chỉnh Sửa</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <!-- End Table -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Col -->
+                </div>
+                <!-- End Row -->
+
+            </div>
+            <!-- end container -->
+        </section>
+        <!-- ========== footer =========== -->
+        <!-- ========== footer end =========== -->
+    </main>
+    <!-- javascript -->
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- fullcalendar -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
+    <!-- js -->
+
+    <script src="~/Scripts/jsADMIN.js"></script>
+</body>
+</html>l

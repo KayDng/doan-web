@@ -1,0 +1,71 @@
+﻿@using WebQuanAoDoAn.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<DON_DAT_HANG>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/style-Table.css" rel="stylesheet" />
+    <link href="~/Content/grid.css" rel="stylesheet" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <title>TTHoaDonTv</title>
+</head>
+
+<body>
+    <div>
+        <div class="grid wide">
+            <div class="responsive-table">
+                <h1>Thông Tin Hóa Đơn</h1>
+                <div class="row title ">
+                    <div class="col l-3 c-2 m-2">Mã Đơn</div>
+                    <div class="col l-3 c-2 m-2">Ngày Đặt</div>
+                    <div class="col l-3 c-2 m-2">Ngày Giao</div>
+                    <div class="col l-3 c-2 m-2">Tình Trạng Giao</div>
+                </div>
+                @foreach (var item in Model)
+                {
+                    <div class="row title1">
+                        <div class="col l-3 c-2 m-2"><a href="/NguoiDung/TTctHoadon/@item.MA_DON_HANG">#@item.MA_DON_HANG</a> </div>
+                        <div class="col l-3 c-2 m-2"> @String.Format("{0:dd/MM/yyyy}", item.NGAY_DAT)</div>
+                        <div class="col l-3 c-2 m-2">@String.Format("{0:dd/MM/yyyy}", item.NGAY_GIAO)</div>
+                        @if (item.TINH_TRANG_GH == true)
+                        {
+                            <div class="col l-3 c-2 m-2" style="color:green">Đã Giao</div>
+                        }
+                        else
+                        {
+                            <div class="col l-3 c-2 m-2" style="color:red">Chưa Giao</div>
+                        }
+                    </div>
+                }
+
+
+                <div class="row PTM">
+                    <div class="PT">
+                        <div>
+                            Trang @(Model.PageNumber>Model.PageCount?0:Model.PageNumber) /@Model.PageCount
+                        </div>
+                        <div class="Menutrang">
+                            @Html.PagedListPager(Model, page => Url.Action("TTHoaDonTv", new { page = page }))
+                        </div>
+
+                        <style>
+                            .Menutran li {
+                                display: inline
+                            }
+                        </style>
+                    </div>
+                    <a href="/WebQuanAo/Index"> Quay Lại</a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+</body>
+</html>

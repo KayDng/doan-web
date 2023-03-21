@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Dangky";
+    Layout = "~/Views/Shared/layOutWebQuanAo.cshtml";
+}
+
+<section id="login">
+    <form action="" method="post" style="min-height: 600px; margin-top:60px">
+        <div class="container">
+            <header class="head-form">
+                <h2>Đăng Ký</h2>
+                <p>Vui lòng nhập thông tin của bạn</p>
+            </header>
+            <div>
+                <span class="input-item">
+                    <i class="fa fa-user-circle"></i>
+                </span>
+                <input class="form-input" id="hoten" name="hoten" type="text" placeholder="Họ và tên" required>
+            </div>
+
+            <div>
+                <span class="input-item">
+                    <i class="fa-solid fa-envelope"></i>
+                </span>
+                <input class="form-input" id="email" name="email" type="email" placeholder="Gmail" required>
+            </div>
+
+            <div>
+                <span class="input-item">
+                    <i class="fa-solid fa-phone"></i>
+                </span>
+                <input class="form-input" id="SDT" type="text" pattern="(\+84|0)\d{9,10}" title="nhập số điện thoại từ 10 đến 11 số" name="SDT" placeholder="Số điện thoại" required>
+
+            </div>
+
+            <div>
+                <span class="input-item">
+                    <i class="fa fa-key"></i>
+                </span>
+                <input class="form-input" type="password" placeholder="Mật khẩu" onChange="onChange()" id="pwd-signup" name="pwd-signup" required>
+                <div id="toggle-signup" onclick="showPasswordSingup()"></div>
+            </div>
+
+            <div>
+                <span class="input-item">
+                    <i class="fa fa-key"></i>
+                </span>
+                <input class="form-input" type="password" placeholder="Nhập lại mật khẩu" onChange="onChange()" id="pwd-signup-again" name="pwd-signup-again" required>
+                <div id="toggle-signup-again" onclick="showPassword()"></div>
+            </div>
+
+            <div style="width:80%; display: flex; ">
+                <button class="submits sign-up" onclick="window.location.href='/NguoiDung/DangNhap'">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Quay Lại
+                </button>
+                <button class="submits sign-up">
+                    Đăng Ký
+                    <i class="fa fa-user-plus"></i>
+                </button>
+            </div>
+
+        </div>
+        <p style="color:red">@ViewBag.ThongBao</p>
+    </form>
+</section>
+

@@ -1,0 +1,133 @@
+﻿@model WebQuanAoDoAn.Models.SAN_PHAM
+
+@{
+    ViewBag.Title = "editsp";
+    Layout = "~/Views/Shared/layoutADMIN.cshtml";
+}
+<div class="cha-body">
+    <h1>CẬP NHẬT SẢN PHẨM</h1>
+    <hr />
+    @using (Html.BeginForm("editsp", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+
+
+        <div class="form-horizontal">
+
+
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.MA_SP)
+
+            <div class="form-group">
+
+                <label class="control-label col-md-2"> MÀU-SP </label>
+                <div class="col-md-10">
+                    @Html.DropDownList("MA_MAU")
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2"> TÊN Loại SP </label>
+                <div class="col-md-10">
+                    @Html.DropDownList("MA_LOAI")
+                </div>
+                <style>
+                    #MA_LOAI, #MA_MAU {
+                        display: block;
+                        width: 100%;
+                        height: 34px;
+                        padding: 6px 12px;
+                        font-size: 14px;
+                        line-height: 1.42857143;
+                        color: #555555;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+                    }
+
+                    .file1 {
+                        margin-bottom: 14px;
+                    }
+
+                    .cha-body h1 {
+                        margin-left: 600px;
+                    }
+
+                    .form-horizontal {
+                        margin-left: 500px;
+                    }
+                    .exit {
+                        margin-left: 600px;
+                    }
+                </style>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TEN_SP, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TEN_SP, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TEN_SP, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.GIA_MUA, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    <input type="number" required id="GIA_MUA" name="GIA_MUA" class="form-control" value="@Model.GIA_MUA" />
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.GIA_BAN, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="number" required id="GIA_BAN" name="GIA_BAN" class="form-control" value="@Model.GIA_BAN" />
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SL, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="number" required id="SL" name="SL" class="form-control" value="@Model.SL" />
+
+                </div>
+            </div>
+
+            <!--<div class="form-group">-->
+            @*@Html.LabelFor(model => model.MO_TA, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <!--<div class="col-md-10">-->
+            @*@Html.EditorFor(model => model.MO_TA, new { htmlAttributes = new { @class = "form-control" } })*@
+
+            <!--</div>
+            </div>-->
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.HINH_ANH, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input class="file1" type="file" name="fileUpload" required />
+                    @*@ViewBag.Thongbao1*@
+                    <img src="~/img/products/@Model.HINH_ANH" width="100" /> hình hiện tại
+                </div>
+            </div>
+
+            <!--<div class="form-group">-->
+            @*@Html.LabelFor(model => model.HINH_ANH1, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                </div>*@
+            <!--</div>-->
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Sửa" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="exit">
+        @Html.ActionLink("Quay Về", "QLSP", "Admin")
+    </div>
+</div>

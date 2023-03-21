@@ -1,0 +1,11 @@
+﻿<div class="filter-by-product">
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>
+                <a href="@Url.Action("SptheoLoai", "WebQuanAo" , new {id = item.MA_LOAI })" id="@item.MA_LOAI">@item.TEN_LOAI</a>
+            </li>
+
+        }
+    </ul>
+</div>

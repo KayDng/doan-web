@@ -1,0 +1,102 @@
+﻿@model WebQuanAoDoAn.Models.KHACH_HANG
+
+@{
+    ViewBag.Title = "DeleteTV";
+    Layout = "~/Views/Shared/layoutADMIN.cshtml";
+}
+
+<h2>DeleteTV</h2>
+<style>
+    dd, dt{
+        margin-bottom:10px;
+    }
+</style>
+<div>
+   
+    <hr />
+    <form method="post" action="">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TEN_KH)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TEN_KH)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SDT)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SDT)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DIA_CHI)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DIA_CHI)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TEN_DN)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TEN_DN)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MK_DN)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MK_DN)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EMAIL)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EMAIL)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NGAY_SINH)
+            </dt>
+
+            <dd>
+                @String.Format("{0:dd/MM/yyyy}", Model.NGAY_SINH)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HINH_ANH)
+            </dt>
+
+            <dd>
+                <img src="~/img/avatarTV/@Model.HINH_ANH" />
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.GIOI_TINH)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.GIOI_TINH)
+            </dd>
+
+            <dd>
+               <button>XÓA</button>
+            </dd>
+
+        </dl>
+    </form>
+</div>
+<p>
+
+    @Html.ActionLink("Quay Về", "QLTV", "Admin")
+
+</p>

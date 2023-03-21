@@ -1,0 +1,240 @@
+﻿@*@using WebQuanAoDoAn.Models;
+@model List<Giohang>*@
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/layOutWebQuanAo.cshtml";
+}
+
+<section id="products">
+    <div class="row">
+        <div class="product-img">
+            <div class="product-gallery">
+                <div class="product-container">
+                    @Html.Action("IMAGE", "WebQuanAo")
+                </div>
+                <div class="image-slider" style="background-image:url(/img/products/@Model.HINH_ANH)">
+                </div>
+
+            </div>
+        </div>
+
+        <div class="product-content">
+            <div class="product-title">
+                <h1>@Model.TEN_SP</h1>
+            </div>
+            <div class="product-price">
+                <span class="pro-price">@String.Format("{0:0,0}", Model.GIA_BAN) đ</span>
+            </div>
+
+            <div class="size">
+
+                @Html.Action("Size", "WebQuanAo")
+                
+            </div>
+            <div class="color">
+                <i class="fas fa-square" style="color: #1b1b1b"></i>
+            </div>
+            <div class="selector-actions">
+                <form action="/Giohang/ThemGiohangALL/@Model.MA_SP?strURL=@Request.Url.ToString()" method="post">
+                    <div class="quantity-area">
+                        <input type="button" value="-" onclick="minusQuantity()" class="qty-btn jstru">
+                        <input type="text" id="quantity" name="SL" value="1" min="1" class="quantity-selector item-quantity js-nostring">
+                        <input type="button" value="+" onclick="plusQuantity()" class="qty-btn jscong">
+
+                    </div>
+                    <div>
+                        
+                        <button type="button" id="add-to-cart" class="button dark" name="add">
+                            <input class="btn-datmua" type="submit" value="ĐẶT MUA" />
+                           
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="product-description">
+                <h3>Mô tả</h3>
+                <div class="description-content">
+                    <p style="margin-bottom:11px;"><strong>OVERSIZED FIT</strong></p>
+                    <p style="margin-bottom:11px"><strong>Your new "Everyday-Sweater"</strong></p>
+                    <p style="margin-bottom:11px">
+                        <strong>Features:</strong><br>
+                        • Chất liệu: Cotton<br>
+                        • Graphic in lụa
+                    </p>
+                    <p style="margin-bottom:11px">
+                        <strong>Fitting:</strong><br>
+                        • Model cao 1m83 - nặng 80kg<br>
+                        • Áo mặc size XL
+                        <span style="color:#e67e22">(Oversized Fit)</span>
+                    </p>
+                    <p style="margin-bottom:11px">&nbsp</p>
+                    <p style="margin-bottom:11px"><hr></p>
+                    <p>&nbsp</p>
+                    <p><img src="../img/Size/T-shirt.png" alt=""></p>
+                </div>
+            </div>
+</section>
+<section id="product1" style="padding: 0;">
+    <div class="wrapper-heading-home wrapper-heading-home-new">
+        <div class="wrapper-animation">
+            <span class="text-animation">
+                <h2>
+                    <a href="/collections/trang-chu">
+                        BRAND LIMITED
+                    </a>
+                </h2>
+            </span>
+            <span class="text-animation">
+                <h2>
+                    <a href="/collections/trang-chu">
+                        BRAND LIMITED
+                    </a>
+                </h2>
+            </span>
+            <span class="text-animation">
+                <h2>
+                    <a href="/collections/trang-chu">
+                        BRAND LIMITED
+                    </a>
+                </h2>
+            </span>
+            <span class="text-animation">
+                <h2>
+                    <a href="/collections/trang-chu">
+                        BRAND LIMITED
+                    </a>
+                </h2>
+            </span>
+            <span class="text-animation">
+                <h2>
+                    <a href="/collections/trang-chu">
+                        BRAND LIMITED
+                    </a>
+                </h2>
+            </span>
+        </div>
+    </div>
+    <div class="pro-container">
+        <div class="pro">
+            <div class="pro-img">
+                <picture>
+                    <img src="/img/limited/1.jpg" alt="">
+                </picture>
+                <picture>
+                    <a href="./cart.html"><img src="/img/limited/1.1.jpg" alt=""></a>
+                </picture>
+                <div class="buy-btn">
+                    <button>THÊM VÀO GIỎ</button>
+                </div>
+            </div>
+            <div class="des">
+                <div class="square">
+                    <i class="fas fa-square" style="color: #ececec;"></i>
+                </div>
+                <h5>GREEN COBWEB TEE</h5>
+                <h4>380,000₫</h4>
+            </div>
+        </div>
+        <div class="pro">
+            <div class="pro-img">
+                <picture>
+                    <img src="/img/limited/2.jpg" alt="">
+                </picture>
+                <picture>
+                    <a href="./cart.html"><img src="/img/limited/2.1.jpg" alt=""></a>
+                </picture>
+                <div class="buy-btn">
+                    <button>THÊM VÀO GIỎ</button>
+                </div>
+            </div>
+            <div class="des">
+                <div class="square">
+                    <i class="fas fa-square"></i>
+                    <i class="fas fa-square" style="color: #ececec;"></i>
+                </div>
+                <h5>H MONOGRAM GILE</h5>
+                <h4>420,000₫</h4>
+            </div>
+        </div>
+        <div class="pro">
+            <div class="pro-img">
+                <picture>
+                    <img src="/img/limited/3.jpg" alt="">
+                </picture>
+                <picture>
+                    <a href="./cart.html"><img src="/img/limited/3.1.jpg" alt=""></a>
+                </picture>
+                <div class="buy-btn">
+                    <button>THÊM VÀO GIỎ</button>
+                </div>
+            </div>
+            <div class="des">
+                <div class="square">
+                    <i class="fas fa-square"></i>
+                </div>
+                <h5>H BLACK TROUSER PANTS</h5>
+                <h4>490,000₫</h4>
+            </div>
+        </div>
+        <div class="pro">
+            <div class="pro-img">
+                <picture>
+                    <img src="/img/limited/4.jpg" alt="">
+                </picture>
+                <picture>
+                    <a href="./cart.html"><img src="/img/limited/4.1.jpg" alt=""></a>
+                </picture>
+                <div class="buy-btn">
+                    <button>THÊM VÀO GIỎ</button>
+                </div>
+            </div>
+            <div class="des">
+                <div class="square">
+                    <i class="fas fa-square"></i>
+                </div>
+                <h5>H MONOGRAM BAGS</h5>
+                <h4>650,000₫</h4>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="newsletter" class="section-p1 section-m1" style="margin-bottom:0 ;">
+    <div class="newstext">
+        <h4>ĐĂNG KÝ NGAY</h4>
+        <p>Để lại email để nhận được thông tin về sản phẩm mới nhất của chúng tôi và <span>các ưu đãi đặc biệt.</span></p>
+    </div>
+    <div class="form">
+        <input type="gmail" placeholder="Vui lòng nhập email tại đây...">
+        <button class="normal">ĐĂNG KÝ</button>
+    </div>
+</section>
+<script>
+    //js size
+    const sizes = document.getElementsByClassName("size")
+    const sizeLabels = document.getElementsByClassName('size-radio-btn')
+    if (sizes[0].children[1]) {
+        sizeLabels[0].classList.add('check');
+    }
+
+    // js image
+    const productIamges = document.querySelectorAll(".product-gallery-container img ")
+
+
+    if (productIamges[0]) {
+        productIamges[0].classList.add('actives');
+        console.log(productIamges)
+    }
+
+    $(document).ready(function () {
+        $('.js-nostring').bind("cut copy paste drag drop", function (e) {
+            e.preventDefault();
+        });
+    });
+    function isNumberKey(e) {
+        var charCode = (e.which) ? e.which : e.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+</script>
+
